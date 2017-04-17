@@ -1,0 +1,25 @@
+<div class="box">
+    <nav class="index-nav once_nav">
+        <span><a href="http://localhost:3000"><img src="image/home.png"/></a></span>
+        <span><a ui-sref='find'><img src="image/fenxiang.png"/></a></span>
+    </nav>
+    <div class="banner">
+        <img ng-src="{{img}}" alt="">
+    </div>
+    <div class="once_content">
+        <nav>
+            <span ng-click="active()">详情</span>
+            <span class="active" ng-click="active()">剧集</span>
+            <span ng-click="active()">评论</span>
+        </nav>
+        <ul>
+            <li ui-sref="play({id:{{x.id}}})" ng-repeat="x in once_arr">
+                <img src="{{x.img}}" alt="">
+                <div>
+                    <p><strong>{{x.name}}<span class="once_span">#{{x.id}}</span></strong></p>
+                    <p class="p2"><small>{{x.time}}<span><img src="image/like.png" alt="">{{x.like}}</span></small></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

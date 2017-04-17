@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="src/jquery-1.12.4.min.js"></script>
+    <script src="src/angular.min.js"></script>
+    <script src="src/angular-ui-router.min.js"></script>
+    <script src="src/angular-css.min.js"></script>
+    <script src="src/swiper.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ui-view>
+    <div class="box">
+        <nav class="index-nav">
+        <span><a href=""><img src="image/caidan.png"/></a></span>
+        <span><a ui-sref='find'><img src="image/sousu.png"/></a></span>
+        </nav>
+        <section class="index-swipers">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://ctcdn.comicool.cn/mowang_banner_koni_20170408.jpg?imageView2/1/w/480/h/234/q/100"></div>
+                    <div class="swiper-slide"><img src="https://ctcdn.comicool.cn/fengman7_banner_koni_170408.jpg?imageView2/1/w/480/h/234/q/100"></div>
+                    <div class="swiper-slide"><img src="https://ctcdn.comicool.cn/ciyuankuaibao_banner_misheng_20170407.jpg?imageView2/1/w/480/h/234/q/100"></div>
+                    <div class="swiper-slide"><img src="https://ctcdn.comicool.cn/gufeng_banner_misheng_20170406.jpg?imageView2/1/w/480/h/234/q/100"></div>
+                    <div class="swiper-slide"><img src="https://ctcdn.comicool.cn/tucao_banner_nana_20170405.jpg?imageView2/1/w/480/h/234/q/100"></div>
+                </div>
+            </div>
+        </section>
+        <div class="content">
+            <div class="hot" ng-controller='hotCtrl'>
+                <div><h2>热门作品</h2><span class="hot_span">稳定更新，扛鼎之作</span></div>
+                <div class="hot_hot">
+                    <span ng-repeat="x in hotarr">
+                        <a ui-sref="once({id:{{x.id}}})">
+                            <img ng-src="{{x.img}}" alt="">
+                            <h3 class="hot_title">{{x.title}}</h3>
+                            <p class="hot_desc">{{x.desc}}</p>
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="hot" ng-controller="actionCtrl">
+                <div><h2>可米活动</h2><span class="hot_span">专栏活动尽在其中</span></div>
+                <div class="hot_hot">
+                    <div class="action_span" ng-repeat="x in actionArr">
+                        <img ng-src="{{x.img}}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="hot" ng-controller="newCtrl">
+                <div><h2>今日更新</h2><span class="hot_span">更新作品抢先看</span></div>
+                <div class="hot_hot">
+                    <div class="new_div" ng-repeat="x in newArr">
+                        <img ng-src="{{x.img}}" alt="">
+                        <p>{{x.title}}</p>
+                    </div>
+                </div>
+                <div class="hot_hot">
+                    <div class="new_div" ng-repeat="x in newArr1">
+                        <img ng-src="{{x.img}}" alt="">
+                        <p>{{x.title}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hot">
+                <div><h2>编辑推荐</h2><span class="hot_span">好看的根本停不下来</span></div>
+                <div class="hot_hot" id="hot_new">
+
+                </div>
+            </div>
+
+            <div class="hot">
+                <div><h2>投稿专区</h2><span class="hot_span">喜欢我的请点赞!</span></div>
+                <div class="hot_hot" id="hot_tougao">
+
+                </div>
+            </div>
+
+            <div class="hot">
+                <div><h2>人气排行</h2><span class="hot_span">人气爆棚，墙裂推荐</span></div>
+                <ul class="hot_ul" id="hot_ul">
+
+                </ul>
+            </div>
+
+            <div class="hot_bottom">
+                <p><img src="image/laba.png" alt="">可米酷漫画APP新版本上线啦!!!</p>
+            </div>
+        </div>
+        <img src="https://m.comicool.cn/images/footer-bg.jpg" alt="" style="width: 100%;">
+        <div class="bottom">
+            <p>关于我们 | 联系我们 | 产品介绍</p>
+            <p style="margin-top: 15px;">Copyright ©2014-2015ComiCool.All Rights Reserved</p>
+        </div>
+    </div>
+</body>
+<script>
+        var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        autoplay: 2500,
+        loop: true,
+        loopAdditionalSlides : 1
+    });
+</script>
+<script src="once/once.js"></script>
+<script src="play/play.js"></script>
+</html>
